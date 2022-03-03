@@ -1,0 +1,52 @@
+
+.switch {
+  position: relative;
+  width: 45px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-left: auto;
+  border-radius: 20px;
+  background-color: rgb(207, 207, 207);
+}
+
+.switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.switch label {
+  /* border: 1px solid red; */
+  position: absolute;
+  padding: 4px;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background-color: transparent; */
+}
+
+/* NOTE -
+    ::after and ::before not work on input and images
+ 
+ */
+
+.switch label::before {
+  position: relative;
+  left: 0;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 50%;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255, 0.8);
+  transition: all 350ms ease-out;
+}
+
+.switch input:checked + label::before {
+  left: 50%;
+  background-color: black;
+}

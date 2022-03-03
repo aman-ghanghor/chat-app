@@ -1,0 +1,90 @@
+
+
+.login-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper {
+   width: 850px;
+   display: grid;
+   grid-template-columns: 40% 60%;
+   background-color: aliceblue;
+   box-shadow: 0 0 3px 1px rgb(162, 189, 211, 0.5);
+}
+
+.login-photo img{
+    width: 100%;
+}
+
+.login {
+   padding: 1rem 1.5rem;
+}
+.login .title {
+   margin-top: 0;
+   margin-bottom: 2rem;
+   font-size: 2.25rem;
+   text-align: center;
+}
+
+.login-form {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   place-items: center;
+   gap: 1rem 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    grid-column: 1 / span 2;
+}
+
+.login .form-control input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background-color: white;
+    border: 0;
+    border-radius: 0.125rem;
+    outline: 0;
+}
+.login .form-control input:focus {
+    box-shadow: 0 0 3px 1px rgba(209, 209, 209, 0.5);
+}
+
+.login .form-btn {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+   margin-top: .25rem;
+}
+.login .form-btn button {
+   width: 100%;
+   padding: 0.75rem 1rem;
+   font-size: 1.25rem;
+   background-color: blue;
+   color: white;
+   border: 0;
+   outline: 0;
+   border-radius: 0.125rem;
+}
+
+.login .another-option {
+   width: 100%;
+   text-align: center;
+   margin-top: 1.5rem;
+   padding-top: 0.5rem;
+   color: blue;
+   border-top: 1px solid rgb(44, 44, 44);
+}
+.login .another-option span {
+    color: black;
+}
+.login .another-option .signup-link {
+    text-decoration: none;
+    color: blue;
+}

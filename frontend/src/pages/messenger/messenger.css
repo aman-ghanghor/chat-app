@@ -1,0 +1,867 @@
+:root {
+    --header-h: 80px;
+    --leftbar-h: calc(100vh - var(--header-h)) ;
+    --rightbar-h: calc(100vh - var(--header-h)) ;
+    --chat-topbar-h: 80px;
+    --chat-bottombar-h: 70px;
+    --chat-area-h: calc(100vh - var(--header-h) - var(--chat-bottombar-h) - var(--chat-topbar-h));
+    --contact-info-h: calc(100vh - 60px) ;
+    /* scrollbar  */
+    --scrollbarBG: #CFD8DC;
+    --thumbBG: #f3f3f3;
+}
+
+
+
+/* ======= Custome Scrollbar ========= */
+.styled-scrollbar::-webkit-scrollbar {
+    width: 11px;
+    height: 10px;
+}
+.styled-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+.styled-scrollbar::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+.styled-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 3px;
+    border: 3px solid var(--scrollbarBG);
+}
+
+
+
+
+.messenger-container {
+    position: relative ;
+    width: 100%;
+    display: grid ;
+    grid-template-columns: minmax(300px, 25%) 50% minmax(300px, 25%) ;
+    justify-content: center;
+    align-content: start;
+    background-color: rgb(255, 195, 106);
+    height: 100vh;
+}
+
+
+
+/* ------------- Header ------------- */
+
+.header-section {
+    height: var(--header-h);
+    grid-column: 1 / span 3;
+    background-color: rgb(255, 243, 253);
+    margin: 0;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.header .logo {
+    height: 50%;
+    width: auto;
+    font-size: 2.25rem;
+    color: rgb(0, 0, 0);
+}
+.header ul {
+    display: flex;
+    flex-direction: row;
+}
+.header ul li {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 1rem;
+}
+.header ul li {
+   margin: 0 1rem;
+}
+.header ul li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0.75rem; */
+    width: 50px;
+    height:50px ;
+    overflow: hidden;
+    font-size: 1.5rem;
+    background-color: rgb(99, 99, 99, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.header ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+.header ul li p {
+    padding-left: 0.5rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+
+
+
+
+
+/* ------------ Chat Area ------------ */
+
+.chat-section {
+    height: var(--leftbar-h);
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(161, 161, 161);
+}
+.chat-section.wide {
+    grid-column: 2 / span 2;
+}
+.chat-section.short {
+    grid-column: 2 / span 1;
+}
+
+/* ---chat section top bar--- */
+
+.chat-section .topbar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    background-color: rgb(224, 194, 255);
+    box-shadow: 0 1px 3px rgba(131, 199, 199, 0.5);
+}
+.chat-section .topbar .you-user {
+   display: grid;
+   grid-template-columns: auto auto;
+   column-gap: 0.75rem;
+   cursor: pointer;
+}
+
+.chat-section .topbar .you-user img {
+    grid-column: 1 / 2 ;
+    grid-row: 1 / 3;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+.chat-section .topbar .you-user .name {
+    padding: 0;
+    grid-column: 2 / 3;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+.chat-section .topbar .you-user p {
+    grid-column: 2 / 3;
+    font-size: 1rem;
+}
+.chat-section .topbar ul {
+    display: flex;
+}
+.chat-section .topbar li {
+    margin: 0 0.125rem;
+}
+.chat-section .topbar .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.65rem;
+    font-size: 1.25rem;
+    border-radius: 50%;
+}
+.chat-section .topbar .icon:hover {
+    cursor: pointer;
+    background-color: rgb(206, 222, 255);
+}
+
+/* ---chat section bottombar--- */
+
+.chat-section .bottombar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    background-color: rgb(200, 255, 238);
+    box-shadow: 0 -1px 3px rgba(131, 199, 199, 0.5);
+}
+.chat-section .bottombar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.chat-section .bottombar ul li {
+    margin: 0 0.35rem;
+}
+.chat-section .bottombar .icon { 
+    font-size: 1.35rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.chat-section .bottombar .icon:hover{
+    background-color: rgb(209, 209, 209);
+}
+.chat-section .bottombar .icon.send {
+    font-size: 1.5rem;
+}
+.chat-section .bottombar li:nth-child(3) {
+    flex-grow: 1;
+}
+.chat-section .bottombar form {
+    position:relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.chat-section .bottombar .msg-input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 0;
+    outline: 0;
+    background-color: rgb(218, 218, 218);
+}
+.chat-section .bottombar .send-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
+.chat-section .bottombar .send-btn:hover {
+    background-color: rgb(0, 0, 0, 0.3);
+}
+
+.chat-section .bottombar form .icon {
+    position: absolute;
+    right: 3rem;
+    font-size: 1.5rem;
+}
+.chat-section .bottombar form .icon:hover {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* ---Chat section chat-area --- */
+
+.chat-section .chat-area {
+   height: var(--chat-area-h) ;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   overflow: auto;
+   padding: 1rem 1.5rem;
+   background-color: rgb(240, 240, 240);
+   transition: height 0.5s ease-out;
+}
+.chat-section .chat-area :first-child {
+    margin-top: auto ;
+}
+
+.chat-area .msg-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+.chat-area .msg-wrapper.sent {
+    justify-content: flex-end;
+}
+.chat-area .msg-wrapper.received {
+    justify-content: flex-start;
+}
+
+.chat-area .msg-wrapper .msg {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.chat-area .msg-wrapper .msg.sent {
+    background-color: rgb(255, 240, 198);
+}
+.chat-area .msg-wrapper .msg.received {
+    background-color: rgb(189, 255, 255);
+}
+
+.chat-area .msg-wrapper .msg p:first-child {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+}
+.chat-area .msg-wrapper .msg p:last-child {
+    text-align: end;
+    font-size: 0.75rem;
+}
+
+
+
+
+
+
+
+/* ----------Right----------- */
+
+.right-section {
+    height: var(--leftbar-h);
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(179, 179, 179);
+}
+.contact-title {
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0 2rem;
+    background-color: rgb(204, 204, 204);
+}
+.contact-title span.close {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem ;
+    color: rgb(73, 73, 73) ;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.contact-title span.close:hover {
+    background-color: rgb(224, 224, 224) ;
+}
+.contact-title h3{
+    font-weight: 500;
+    transform: translateY(-2px);
+}
+
+.rightbar .contact-info {
+    height: var(--contact-info-h) ;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    background-color: rgb(219, 219, 219);
+}
+
+/* --- Contact Profile --- */
+.contact-info .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    padding: 1.75rem 0;
+    box-sizing: border-box;
+    background-color: rgb(252, 252, 252);
+}
+.contact-info .profile .avatar {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    object-position: center center;
+    margin-bottom: 0.55rem;
+    background-color: red;
+    border-radius: 50%;
+}
+.contact-info .profile .name {
+    font-size: 1.5rem;
+    color: rgb(78, 78, 78);
+}
+.contact-info .profile .phone {
+    font-size: 1rem;
+    color: gray;
+}
+
+/* common */
+.contact-info .info {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+.contact-info .center-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --- Contact About --- */
+.contact-info .about {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6rem;
+    padding: 1rem 2rem;
+    background-color: rgb(252, 252, 252); 
+}
+.contact-info .about p{
+   padding-bottom: 0.3rem;
+   font-size: 0.95rem;
+   color: gray;
+}
+.contact-info .about span{
+    padding-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+/* --- Contact Media and docs --- */
+.contact-info .media {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6rem;
+    padding: 1rem 2rem;
+    background-color: rgb(252, 252, 252); 
+}
+.contact-info .media p {
+    font-size: 0.95rem ;
+    color: gray;
+    margin-bottom: 0.75rem;
+}
+.contact-info .media div:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info .media div:last-child {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+.contact-info .media img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 0.5rem;
+}
+
+/* --- Starred Messages --- */
+.contact-info .starred {
+    margin-bottom: 0.6rem;
+    background-color: rgb(252, 252, 252); 
+}
+.contact-info .starred span:first-child {
+    margin-right: 1.25rem;
+}
+.contact-info .starred span:last-child {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+/* --- notifications --- */
+.contact-info .notification {
+    margin-bottom: 0.6rem;
+    background-color: rgb(252, 252, 252); 
+}
+.contact-info .notification span:first-child {
+    margin-right: 1.25rem;
+}
+.contact-info .notification span:first-child {
+    margin-right: 1.25rem;
+}
+
+
+/* --- Block user --- */
+.contact-info .block {
+    background-color: rgb(252, 252, 252); 
+}
+
+/* --- Report user --- */
+.contact-info .report {
+    margin-bottom: 0.6rem;
+    background-color: rgb(252, 252, 252); 
+}
+
+/* --- Delete chat --- */
+.contact-info .delete {
+    background-color: rgb(252, 252, 252); 
+}
+
+/* danger */
+.contact-info .danger {
+    color: rgb(238, 0, 0);
+    cursor: pointer;
+}
+.contact-info .danger:hover {
+    background-color: rgb(238, 238, 238);
+}
+.contact-info .danger span:first-child {
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+
+
+/* ======== Start Chat Section ========= */
+.startChat {
+    height: 100%;
+    background-color: tomato;
+}
+
+
+
+
+
+/* ----------- Left ----------- */
+
+.left-section {
+    height: var(--leftbar-h);
+    display: flex ;
+    flex-direction: column;
+    background-color: rgb(232, 232, 255);
+}
+.leftbar .section-title {
+   margin-top: 1rem;
+   margin-bottom: 0.5rem;
+   text-align: center;
+   font-size: 1.75rem;
+   font-weight: 500;
+}
+.leftbar .searchbar {
+    padding: 1rem 1rem;
+}
+.leftbar .searchbar input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 0;
+    outline: 0;
+    border-radius: 0.2rem;
+}
+.leftbar .searchbar input:focus {
+    box-shadow: 0 0 3px 1px rgb(153, 189, 255);
+}
+.leftbar .user-list {
+    flex-grow: 1;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* box-sizing: border-box; */
+    /* padding: 1rem;  */
+    background-color: rgb(252, 252, 252);
+}
+.leftbar .user {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* margin-bottom: 1.75rem; */
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.leftbar .user:hover {
+    background-color: rgb(243, 243, 243) ;
+}
+.leftbar .profile-photo {
+    position: relative;
+    width: 50px; 
+    height: 50px;
+}
+.leftbar .profile-photo img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+.leftbar .profile-photo span {
+    position: absolute;
+    bottom: 15% ;
+    right: 15% ;
+    transform: translate(50%, 50%);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    outline: 3px solid rgb(255, 255, 255);
+}
+.leftbar .profile-photo span.offline{
+    background-color: #bebebe;  
+}
+.leftbar .profile-photo span.online {
+    background-color: rgb(0, 206, 0);
+}
+
+.leftbar .user-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    box-sizing: border-box;
+    padding-left: 0.75rem;
+}
+.leftbar .name {
+    padding: 0;
+    grid-column: 1 / 2;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+.leftbar .time {
+    grid-column: 2 / 3;
+    text-align: end;
+    font-size: 1rem;
+}
+.leftbar .msg {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    border: 1px solid green;
+}
+.leftbar .msg span {
+    width: 1rem;
+    height: 1rem;
+    padding: 0.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    color: white;
+    background-color: rgb(255, 153, 86);
+    border-radius: 50%;
+}
+
+
+
+
+/* ===== Add User section ===== */
+
+.addUser-section {
+    position: fixed;
+    left: 0;
+    top: var(--header-h) ;
+    width: 100%;
+    height: var(--rightbar-h) ;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 144, 144, 0.95);
+    z-index: 100;
+} 
+.addUser-section .wrapper {
+    width: 800px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1.75rem 3.5rem;
+    margin-top: 1.5rem;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+}
+.addUser-section .header {
+    display: flex;
+    flex-direction: column;
+
+}
+.addUser-section .header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+.addUser-section .header p {
+    font-size: 1.25rem;
+}
+
+
+.addUser-section .middle {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.65rem 0;
+    /* border: 1px solid rgb(248, 248, 248); */
+}
+.addUser-section .search-box {
+    width: 100%;
+    height: 70px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem 1.25rem;
+    box-sizing: border-box;
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 0.4rem;
+}
+.addUser-section .username-list {
+    display: flex;
+    gap: 0.5rem;
+    /* margin-right: 0.5rem; */
+}
+
+.addUser-section .username {
+    height: 2rem ;
+    display: flex;
+    align-items: center;
+    padding: 0 0.125rem;
+    color: rgb(31, 128, 255) ;
+    background-color: rgb(233, 248, 255);
+    border-radius: 0.25rem;
+}
+.addUser-section .username p {
+    padding-left: 0.5rem;
+    padding-right: 0.125rem;
+    font-size: 1.125rem;
+}
+.addUser-section .username span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 1.35rem;
+    padding: 0 .5rem;
+    color: rgb(0, 0, 0) ;
+    cursor: pointer;
+}
+
+
+.addUser-section form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: auto;
+    margin-left: 1rem;
+    /* border: 3px solid rgb(128, 62, 128); */
+}
+
+.addUser-section :is(.autogrow, input) {
+   width: 100%;
+   min-width: 50px;
+   height: 25px;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+   font-size: 1.125rem;
+}
+.addUser-section .autogrow {
+    position: relative;
+    visibility: hidden;
+    /* top: -5px; */
+    /* background-color: rgb(255, 21, 21); */
+}
+.addUser-section .search-input {
+    position: absolute;
+    caret-color: rgb(0, 153, 255);
+    border: 0;
+    outline: 0;
+    /* background-color: rgba(126, 196, 46, 0.9); */
+}
+
+.addUser-section .match-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* border: 1px solid rgb(0, 4, 255); */
+}
+.addUser-section .match-box h3 {
+   padding: 0.75rem 0;
+   font-size: 1.25rem;
+   font-weight: 500;
+}
+.addUser-section .match-list {
+    flex-grow: 1;
+    height: 100px;
+    overflow: auto;
+    /* background-color: rgb(255, 166, 0, 0.1); */
+}
+.addUser-section .matched-user {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgb(218, 218, 218, 0.5);
+    cursor: pointer;
+}
+.addUser-section .matched-user:hover {
+    background-color: rgba(245, 245, 245, 0.25);
+}
+.addUser-section .matched-user img {
+    height: 2rem ;
+    width: 2rem ;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+.addUser-section .matched-user span{
+    margin-left: 1rem;
+    font-size: 1.125rem;
+}
+
+
+
+.addUser-section .footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    /* border: 1px solid blue; */
+}
+.addUser-section button.add-user {
+    padding: 0.5rem 1.25rem;
+    font-size: 1.25rem;
+    color: rgb(0, 0, 0);
+    background-color: rgb(71, 187, 255);
+    border: 0;
+    outline: 0;
+    border-radius: 0.2rem;
+}
+.addUser-section button:disabled {
+    background-color: #CFD8DC;
+    color: #646464;
+}
+
+
+
+
+/* ========= LOADER ==========*/
+
+.contacts-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(223, 223, 223, 0.7);
+    z-index: 100;
+}
+
+.contact-loader .loader h2 {
+    font-size: 3rem;
+    color: rgb(29, 29, 29)
+}
+
+
+
+
+
+
+

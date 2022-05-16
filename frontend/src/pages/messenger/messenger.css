@@ -595,6 +595,7 @@
     object-fit: cover;
     object-position: center center;
     border-radius: 50%;
+    background-color: #bebebe;  
 }
 .leftbar .profile-photo span {
     position: absolute;
